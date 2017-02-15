@@ -2,7 +2,6 @@ console.log('Starting note.js')
 
 const fs = require('fs');
 
-
 var fetchNotes = () => {
   try {
     var notesString = fs.readFileSync('notes-data.json')
@@ -17,7 +16,7 @@ var saveNotes = (notes) => {
 }
 
 var addNote = (title, body) => {
-  var notes = fetchNotes();  
+  var notes = fetchNotes();
   var note = {
     title,
     body
@@ -30,7 +29,6 @@ var addNote = (title, body) => {
   }
 }
 
-
 var getAll = () => {
   console.log('Getting all notes')
 }
@@ -40,7 +38,10 @@ var getNote = (title) => {
 }
 
 var removeNote = (title) => {
-  console.log('Removing', title)
+  var notes = fetchNotes()
+  var notesToKeep = notes.filter((note) => note.title !== title)
+  saveNotes(notesToKeep)
+  return notes.length !== notesToKeep.length
 }
 
 

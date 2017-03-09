@@ -2,6 +2,11 @@ const express = require('express')
 const hbs = require('hbs')
 const fs = require('fs')
 
+// setting it up to configure with Heroku or run locally
+const port = process.env.PORT || 3000
+
+
+
 // creating app by calling express function
 var app = express();
 
@@ -83,11 +88,14 @@ app.get('/bad', (req, res) => {
 
 // binds application to port on machine
  // optional second argument of what to do when server is up
-app.listen(3000, () => {
-  console.log('Server is up on port 3000')
+// app.listen(3000, () => {
+//   console.log('Server is up on port 3000')
+// });
+
+// changing port to be dynamic so it works on Heroku
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`)
 });
-
-
 
 
 // In terminal, you run node server.js to boot it up

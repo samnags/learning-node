@@ -15,3 +15,21 @@ export
 
 nodemon
 - terminal command that updates when you save
+
+node debug
+- n moves into next statement
+- c continues to end
+
+
+Node Engine
+- Callstack
+- Node API
+- Callback Queue
+if call stack is empty, event loop will turn to callback Queue and move function to call stack
+
+Promises
+- Can only pass one argument to resolve and reject
+- .then returns a promise and takes up to two arguments - a callback function for success and one for failure
+
+Templating Engine
+- Dynamically inject values - reuse html
